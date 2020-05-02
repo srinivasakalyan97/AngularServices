@@ -7,6 +7,8 @@ import { CommunicationService } from './../../communication.service'
 })
 export class ChildOneComponent implements OnInit {
   headerOrg:any;
+  Signup:boolean;
+  BtnLogin:boolean;
   headertext=[{"State":"Kerala","Town":"Kollam","literacy":"100%"}]
   headertext2=[{"State":"Tamilnadu","Town":"Tirunelveli","literacy":"100%"}]
 
