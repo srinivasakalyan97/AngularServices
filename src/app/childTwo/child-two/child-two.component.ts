@@ -8,13 +8,28 @@ import { CommunicationService } from './../../communication.service'
 export class ChildTwoComponent implements OnInit,OnChanges {
   headerOrg: any;
   loginmsg: any;
-
+  private _getrsetrv:any;
   constructor(private CommunicationService:CommunicationService) { }
 
   @Input() helloproperty:Array<string>
   @Input() helloproperty2:Array<string>
   @Input() loginout:boolean;
   @Input() signup:boolean;
+  @Input() changesobj:Array<string>
+
+  get gettersetterValue():Array<any>{
+    return this._getrsetrv;
+  }
+
+ @Input()
+  set gettersetterValue(value:Array<any>){
+     this._getrsetrv=value
+     if(this._getrsetrv[0].name=='powerstar'){
+       console.log("Wohooo Power*");
+     }
+     console.log("this._getrsetrv",this._getrsetrv)
+  }
+
 
   ngOnInit(): void {
     this.CommunicationService.cast
