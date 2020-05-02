@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommunicationService } from './../../communication.service'
+import { ChildTwoComponent } from 'src/app/childTwo/child-two/child-two.component';
 @Component({
   selector: 'app-child-one',
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.css']
 })
-export class ChildOneComponent implements OnInit {
+export class ChildOneComponent implements OnInit, AfterViewInit {
   headerOrg:any;
   Signup:boolean=false;
   BtnLogin:boolean=false;
+  @ViewChild(ChildTwoComponent) ComponentTwoElementRef:ChildTwoComponent
   gsobj=[{"name":"powerstar","affiliation":"JanaSena","dob":"2nd Sept"}]
   ngchangesObj=[{"hello":"hi","goodday":"goodDay Buddy"}]
   headertext=[{"State":"Kerala","Town":"Kollam","literacy":"100%"}]
@@ -24,5 +26,8 @@ export class ChildOneComponent implements OnInit {
       console.log("header text in child 1",this.headerOrg)
     }
     )
+  }
+  ngAfterViewInit(){
+    console.log("email of two",this.ComponentTwoElementRef.email)
   }
 }

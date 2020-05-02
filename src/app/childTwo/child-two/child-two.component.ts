@@ -8,7 +8,9 @@ import { CommunicationService } from './../../communication.service'
 export class ChildTwoComponent implements OnInit,OnChanges {
   headerOrg: any;
   loginmsg: any;
+  email="childcomponent@two.com"
   private _getrsetrv:any;
+  name="childtwoComponent"
   constructor(private CommunicationService:CommunicationService) { }
 
   @Input() helloproperty:Array<string>
@@ -30,6 +32,9 @@ export class ChildTwoComponent implements OnInit,OnChanges {
      console.log("this._getrsetrv",this._getrsetrv)
   }
 
+  helloguru(){
+    alert("hello guru");
+  }
 
   ngOnInit(): void {
     this.CommunicationService.cast
