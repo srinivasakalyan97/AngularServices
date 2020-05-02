@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import { CommunicationService } from './../../communication.service'
 @Component({
   selector: 'app-child-two',
@@ -10,6 +10,7 @@ export class ChildTwoComponent implements OnInit,OnChanges {
   loginmsg: any;
   email="childcomponent@two.com"
   private _getrsetrv:any;
+  jsonvalue=[{"hi":"hello","You're From":"India"}]
   name="childtwoComponent"
   constructor(private CommunicationService:CommunicationService) { }
 
@@ -18,6 +19,7 @@ export class ChildTwoComponent implements OnInit,OnChanges {
   @Input() loginout:boolean;
   @Input() signup:boolean;
   @Input() changesobj:Array<string>
+  @Output() receiveFromChild = new EventEmitter();
 
   get gettersetterValue():Array<any>{
     return this._getrsetrv;
@@ -34,6 +36,10 @@ export class ChildTwoComponent implements OnInit,OnChanges {
 
   helloguru(){
     alert("hello guru");
+  }
+
+  sendToParent(){
+    this.receiveFromChild.emit(this.jsonvalue);
   }
 
   ngOnInit(): void {

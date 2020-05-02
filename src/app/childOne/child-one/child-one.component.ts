@@ -18,6 +18,11 @@ export class ChildOneComponent implements OnInit, AfterViewInit {
 
   constructor(private CommunicationService:CommunicationService) { }
 
+  helloMsgFromChild($event){
+    alert($event)
+    console.log("message from child",$event)
+  }
+
   ngOnInit(): void {
   this.CommunicationService.cast
   .subscribe(
